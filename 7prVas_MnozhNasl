@@ -1,0 +1,69 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+class Screen{
+public:
+    void display(){}
+    float diag;
+};
+
+class Keyboard{
+    virtual void print(){}
+};
+class Laptop : public Screen, public Keyboard
+{
+public:
+    float diag = 16;
+    void print()
+    {
+        cout << endl << "Screen diag. of laptop = " << diag << endl;
+    }
+    void display()
+    {
+        cout << "ASUS" << endl << "booting..." << endl;
+    }
+};
+
+class Phone : public Screen, public Keyboard
+{
+public:
+    float diag = 3.5;
+    void print()
+    {
+        cout << endl << "Screen diag. of phone = " << diag << endl;
+    }
+    void display()
+    {
+        cout << "Powered by Android" << endl;
+    }
+};
+
+class Desktop : public Screen, public Keyboard
+{
+public:
+    float diag = 21.5;
+    void print()
+    {
+        cout << endl << "Screen diag. of desktop monitor = " << diag << endl;
+    }
+    void display()
+    {
+        cout << "Acer" << endl << "booting..." << endl;
+    }
+};
+
+int main()
+{
+    Laptop note1;
+    note1.print();
+    note1.display();
+    Phone phone1;
+    phone1.print();
+    phone1.display();
+    Desktop pc1;
+    pc1.print();
+    pc1.display();
+
+    return 0;
+}
